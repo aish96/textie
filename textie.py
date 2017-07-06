@@ -2,6 +2,15 @@ from flask import Flask, request
 import json
 import requests
 
+
+#nltk lib
+import nltk
+from nltk.stem.lancaster import LancasterStemmer
+import os
+import json
+import datetime
+
+
 app = Flask(__name__)
 
 # This needs to be filled with the Page Access Token that will be provided
@@ -58,13 +67,9 @@ def send_message(token, recipient, text):
 if __name__ == '__main__':
   app.run()
   
-'''
 
-import nltk
-from nltk.stem.lancaster import LancasterStemmer
-import os
-import json
-import datetime
+
+
 stemmer = LancasterStemmer()
 training_data = []
 training_data.append({"class":"greeting", "sentence":"how are you?"})
@@ -303,7 +308,8 @@ classify("make me some lunch")
 classify("how was your lunch today?")
 print()
 classify("good day", show_details=True)
-'''
+
+
 
   
   
