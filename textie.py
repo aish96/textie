@@ -248,7 +248,8 @@ print()
 def outputfun(msg):
     res = classify(msg)
     print("class assigned=",res[0])
-    if res[0] == "greetings" :
+    print(res[0] == "greetings")
+    if res[0] == "greeting" :
        return random.choice(["Hey , nice to meet you!","Hello, how you doing ?","Its been a great day ,how was yours?","Tell me your story.","How can I help you? "])
     elif res[0] == "mood" :
         return random.choice(["More you laugh , more you live !!","If you dont know where to go then it doesn't matter which path you choose.","Live your life like when you die...make sure that you may die with memories...not with dreams...!","In every story there is a possibility of happy ending.. but it depends where we want the story to end!"])
