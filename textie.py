@@ -240,7 +240,6 @@ def classify(sentence, show_details=False):
     results.sort(key=lambda x: x[1], reverse=True) 
     return_results =[[classes[r[0]],r[1]] for r in results]
     print ("%s \n classification: %s" % (sentence, return_results))
-    print(return_results[0])
     return return_results[0]
 
 
@@ -248,6 +247,7 @@ print()
 
 def outputfun(msg):
     res = classify(msg)
+    print("class assigned=",res[0])
     if res == "greetings" :
        return random.choice(["Hey , nice to meet you!","Hello, how you doing ?","Its been a great day ,how was yours?","Tell me your story.","How can I help you? "])
     elif res == "mood" :
