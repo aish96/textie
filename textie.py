@@ -9,6 +9,8 @@ from nltk.stem.lancaster import LancasterStemmer
 import os
 import json
 import datetime
+import numpy as np
+import time
 
 
 
@@ -88,8 +90,6 @@ print ([stemmer.stem(word.lower()) for word in w])
 print (training[i])
 print (output[i])
 
-import numpy as np
-import time
 
 # compute sigmoid nonlinearity
 def sigmoid(x):
@@ -240,18 +240,19 @@ def classify(sentence, show_details=False):
     results.sort(key=lambda x: x[1], reverse=True) 
     return_results =[[classes[r[0]],r[1]] for r in results]
     print ("%s \n classification: %s" % (sentence, return_results))
-    return return_results
+    print(return_results[0])
+    return return_results[0]
 
 
 print()
 
 def outputfun(msg):
     res = classify(msg)
-    if res.equals("greetings"):
+    if res == "greetings" :
        return random.choice(["Hey , nice to meet you!","Hello, how you doing ?","Its been a great day ,how was yours?","Tell me your story.","How can I help you? "])
-    elif res.equals("mood"):
+    elif res == "mood" :
         return random.choice(["More you laugh , more you live !!","If you dont know where to go then it doesn't matter which path you choose.","Live your life like when you die...make sure that you may die with memories...not with dreams...!","In every story there is a possibility of happy ending.. but it depends where we want the story to end!"])
-    elif res.equals("goodbye"):
+    elif res == "goodbye":
         return random.choice(["it was nice talking to you ","signing off now!","see yaa,talk to you later "])
     else:
         return random.choice(["sorry,I didn't get it! ","Can you be more specific?"])
